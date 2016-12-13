@@ -9,6 +9,8 @@ class HuffNode{
 public:
   int count;
   char character;
+  HuffNode left;
+  HuffNode right;
 
   HuffNode(int num, char c){
     count = num;
