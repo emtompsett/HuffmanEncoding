@@ -4,7 +4,7 @@
  */
 
 #include <iostream>
-#include "BinaryHeap.cpp"
+#include "BinaryMinHeap.cpp"
 #include "HuffNode.cpp"
 
 int main(){
