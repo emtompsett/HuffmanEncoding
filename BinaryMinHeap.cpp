@@ -11,9 +11,11 @@ template <typename Comparable>
 class BinaryHeap{
 public:
   vector<Comparable> heap;
+
   //constructor
   BinaryHeap<Comparable> (){
     vector<Comparable> heap;
+
   }
 
   void swap(int pos1, int pos2){
@@ -38,13 +40,12 @@ public:
       return;}
     int pos = heap.size() - 1;
     int parentPos = (pos+1) / 2 - 1;
-
     while(heap[pos] < heap[parentPos]
 	  && pos >= 0 && parentPos >= 0){
       swap(pos,parentPos);
       pos = parentPos;
       parentPos = (pos+1) / 2 - 1;
-    }   
+    }
   }
 
   int numChildren(int position){
@@ -77,11 +78,11 @@ public:
 	swap(i,childPos);
       }
     }
-    printHeap();
+    //printHeap();
   }
 
 };
-int main(){
+/*int main(){
   BinaryHeap<int> jack = BinaryHeap<int>();
   jack.insert(17);
   jack.printHeap();
@@ -103,5 +104,5 @@ int main(){
   for (int i = 0; i < 3; i++){
     jack.remove();
      }
-}
+     }*/
 		

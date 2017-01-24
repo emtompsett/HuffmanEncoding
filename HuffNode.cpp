@@ -4,6 +4,7 @@
  */
 #include <iostream>
 using namespace std;
+//#include <vector>
 
 class HuffNode{
 public:
@@ -17,12 +18,18 @@ public:
     character = c;
   }
 
-  HuffNode(HuffNode l, HuffNode r){
-    character = '*';
-    count = l.count + r.count;
-    left = &l;
-    right = &r;
+  void showChildren(){
+    cout << character << ":" << count << endl;
+    if (character != '*'){
+      return;
+    }
+    else{
+      left->showChildren();
+      right->showChildren();
+    }
   }
+ 
+      
   
   bool operator<(const HuffNode & h){
     return count < h.count;
