@@ -11,10 +11,12 @@ template <typename Comparable>
 class BinaryHeap{
 public:
   vector<Comparable> heap;
+  int size;
 
   //constructor
   BinaryHeap<Comparable> (){
     vector<Comparable> heap;
+
 
   }
 
@@ -61,7 +63,7 @@ public:
 
   
   Comparable remove(){
-    Comparable maxPriority = heap[0];
+    Comparable  maxPriority = heap[0];
     heap.erase(heap.begin(), heap.begin() + 1);
     for(int i = 0; 2 * i + 1 < heap.size(); i++){
       int numChild = numChildren(i);
@@ -78,31 +80,31 @@ public:
 	swap(i,childPos);
       }
     }
-    //printHeap();
+    
   }
 
 };
-/*int main(){
+int main(){
   BinaryHeap<int> jack = BinaryHeap<int>();
   jack.insert(17);
-  jack.printHeap();
+  //jack.printHeap();
   jack.insert(38);
-  jack.printHeap();
+  //jack.printHeap();
   jack.insert(5);
-  jack.printHeap();
+  // jack.printHeap();
   jack.insert(226);
-  jack.printHeap();
+  //  jack.printHeap();
   jack.insert(34);
-  jack.printHeap();
+  //  jack.printHeap();
   jack.insert(236);
-  jack.printHeap();
+  //  jack.printHeap();
   jack.insert(26);
-  jack.printHeap();
+  //  jack.printHeap();
   jack.insert(52);
   jack.insert(9);
-  jack.printHeap();
+  // jack.printHeap();
   for (int i = 0; i < 3; i++){
     jack.remove();
      }
-     }*/
+     }
 		

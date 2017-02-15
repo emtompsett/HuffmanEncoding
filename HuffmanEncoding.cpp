@@ -4,29 +4,27 @@
  */
 
 #include <iostream>
-#include "BinaryMinHeap.cpp"
-#include "HuffNode.cpp"
+#include "HuffHeap.cpp"
+//#include "HuffNode.cpp"
 
 int main(){
-  //cout << "Enter the text to encrypt: ";
-  //string message;
-  //getline(cin, message);
 
-  BinaryHeap<HuffNode> b = BinaryHeap<HuffNode>();
-  b.insert(HuffNode(2,'c'));
-  b.insert(HuffNode(1, 'a'));
-  b.insert(HuffNode(5, 'd'));
-  b.insert(HuffNode(1,'b'));
-    
+  HuffHeap b = HuffHeap();
+  cout<< "created the heap" << endl;
+  b.insert(new HuffNode(2,'c'));
+  b.insert(new HuffNode(1, 'a'));
+  b.insert(new HuffNode(5, 'd'));
+  b.insert(new HuffNode(1,'b'));
   b.printHeap();
-  HuffNode first = b.remove();
-  HuffNode second = b.remove();
-  HuffNode n = HuffNode(first.count + second.count, '*');
-  n.left = &first;
-  n.right = &second;
-  n.showChildren();
-  b.insert(n);
-  b.printHeap();
-  //cout << b.size << endl;
-    
+  while (b.heap.size() > 1){
+    b.printHeap();
+    HuffNode* first = b.remove();
+    HuffNode* second = b.remove();
+    HuffNode* n = new HuffNode(first->count + second->count, '*');
+    n->left = first;
+    n->right = second;
+    b.insert(n);
+  }
+  HuffNode* curr = b.heap[0];
+  curr->showChildren();
 }

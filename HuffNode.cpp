@@ -16,8 +16,16 @@ public:
   HuffNode(int num, char c){
     count = num;
     character = c;
+    left = nullptr;
+    right = nullptr;
   }
-
+    
+  ~HuffNode(){
+      delete left;
+      delete right;
+  }
+  
+  
   void showChildren(){
     cout << character << ":" << count << endl;
     if (character != '*'){
@@ -31,10 +39,10 @@ public:
  
       
   
-  bool operator<(const HuffNode & h){
+  bool operator<(const HuffNode& h){
     return count < h.count;
   }
-  bool operator<= (const HuffNode & h){
+  bool operator<= (const HuffNode& h){
     return count <= h.count;
   }
   bool operator>(const HuffNode & h){
